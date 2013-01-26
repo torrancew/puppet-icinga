@@ -1,0 +1,12 @@
+# Puppet Icinga Module
+
+## Usage
+
+### icinga
+The icinga class wraps icinga::install, icinga::configure and icinga::service
+
+    include icinga
+
+## Contributors
+  * Tray Torrance - Author
+
