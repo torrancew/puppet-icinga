@@ -8,4 +8,5 @@ description  'A module to install, configure and run the Icinga monitoring serve
 project_page 'https://github.com/torrancew/puppet-icinga'
 
 dependency 'puppetlabs/stdlib', '3.2.x'
+dependency 'ripienaar/concat',  '0.2.x'
 

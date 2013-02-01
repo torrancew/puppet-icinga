@@ -25,7 +25,8 @@
 #
 
 class icinga::configure {
-  Class['icinga::install'] -> Class['icinga::configure']
+  Class['icinga::install']   -> Class['icinga::configure']
+  Class['concat::setup']     -> Class['icinga::configure']
 
   $default_cfg_files = [
     '/etc/icinga/objects/contacts_icinga.cfg',
@@ -39,5 +40,27 @@ class icinga::configure {
   ]
 
   file { $default_cfg_files: ensure => absent }
+
+  concat {
+    '/etc/icinga/objects/contacts.cfg':
+      owner => 'root',
+      group => 'root',
+      mode  => 0644;
+
+    '/etc/icinga/objects/contactgroups.cfg':
+      owner => 'root',
+      group => 'root',
+      mode  => 0644;
+
+    '/etc/icinga/objects/timeperiods.cfg':
+      owner => 'root',
+      group => 'root',
+      mode  => 0644;
+
+    '/etc/icinga/objects/hostgroups.cfg':
+      owner => 'root',
+      group => 'root',
+      mode  => 0644;
+  }
 }
 
