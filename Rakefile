@@ -5,6 +5,6 @@ task :default => :spec
 
 RSpec::Core::RakeTask.new( :spec ) do |task|
   task.rspec_opts = %w[ --color --format doc ]
-  task.pattern    = 'spec/**/*_spec.rb'
+  task.pattern    = 'spec/*/*_spec.rb'
 end
 

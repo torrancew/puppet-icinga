@@ -25,7 +25,7 @@
 #
 
 class icinga::service {
-  Class['icinga::configure'] -> Class['icinga::service']
+  Class['icinga::configure'] ~> Class['icinga::service']
 
   service {
     'icinga':

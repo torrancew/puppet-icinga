@@ -26,5 +26,18 @@
 
 class icinga::configure {
   Class['icinga::install'] -> Class['icinga::configure']
+
+  $default_cfg_files = [
+    '/etc/icinga/objects/contacts_icinga.cfg',
+    '/etc/icinga/objects/hostgroups_icinga.cfg',
+    '/etc/icinga/objects/generic-host_icinga.cfg',
+    '/etc/icinga/objects/localhost_icinga.cfg',
+    '/etc/icinga/objects/extinfo_icinga.cfg',
+    '/etc/icinga/objects/generic-service_icinga.cfg',
+    '/etc/icinga/objects/services_icinga.cfg',
+    '/etc/icinga/objects/timeperiods_icinga.cfg',
+  ]
+
+  file { $default_cfg_files: ensure => absent }
 }
 
